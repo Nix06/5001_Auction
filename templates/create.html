@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %} Create user {% endblock %}
+{% block content %}
+<h3> Create a user by inputting below </h3>
+<form action = "#" methond = "post">
+    <p> 
+        Username:
+        <input type = "text" name = "usr_name"/>
+    </p>
+    <p>
+        Password:
+        <input type = "text" name = "usr_password"/>
+    </p>
+    <p>
+        <input type = "submit" value = "submit"/>
+    </p>
+</form>
+{% endblock %}

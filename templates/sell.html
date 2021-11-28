@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %} Sell new item {% endblock %}
+{% block content %}
+<h3> To list an item put in the information for it below</h3>
+<form action = "#" methond = "post">
+    <p> 
+        Item name:
+        <input type = "text" name = "item_nm"/>
+    </p>
+    <p> Photo of item:
+        <input type = "submit" value = "Choose image file"/>
+    </p>
+    <p>
+        Item description:
+        <input type = "text" name = "item_des"/>
+    </p>
+    <p><input type = "submit" value = "submit"/></p>
+</form>
+{% endblock %}
