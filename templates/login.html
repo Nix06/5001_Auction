@@ -1,8 +1,15 @@
 {% extends "base.html" %}
 {% block title %} Login {% endblock %}
 {% block content %}
+    {% with messages = get_flashed_messages() %} 
+        {% if messages %} 
+            {% for msg in messages %} 
+                <p>{{msg}}</p>
+            {% endfor %} 
+        {% endif %}
+    {% endwith %}
 <h3> Login below </h3>
-<form action = "#" methond = "post">
+<form action = "#" method = "POST">
     <p> 
         Username:
         <input type = "text" name = "usr_name"/>

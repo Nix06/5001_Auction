@@ -1,5 +1,19 @@
 {% extends "base.html" %}
 {% block title %} My items {% endblock %}
 {% block content %}
-<h1> My items </h1>
+    {% with messages = get_flashed_messages() %} 
+        {% if messages %} 
+            {% for msg in messages %} 
+            <p>{{msg}}</p>
+            {% endfor %} 
+        {% endif %}
+    {% endwith %}
+<h1> My items:<br></h1>
+
+{% for item in values %} 
+    <img src = "{{url_for('static', filename='images/'+item.item_img)}}" style="height: 200px !important; width: 200px !important;">
+    <h5>{{item.item_nm}}</h5>
+    <p><br>{{item.item_des}}</p>
+{% endfor %} 
+
 {% endblock %}

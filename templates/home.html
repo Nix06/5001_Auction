@@ -1,5 +1,11 @@
 {% extends "base.html" %}
 {% block title %} Home page {% endblock %}
 {% block content %}
-<h1> Test </h1>
+<h1 class = "text-center"> Home page </h1>
+
+{% for item in values %} 
+    <img src = "{{url_for('static', filename='images/'+item.item_img)}}" style="height: 200px !important; width: 200px !important;">
+    <h5>{{item.item_nm}}</h5>
+    <p><br>{{item.item_des}}</p>
+{% endfor %} 
 {% endblock %}
