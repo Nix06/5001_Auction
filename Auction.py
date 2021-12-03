@@ -11,7 +11,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.sqlite3'
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config["IMAGE_UPLOADS"] = os.path.dirname("C:\\Users\\Nick\\Documents\\Uni\\5001_Auction\\static\\images\\")  #Means the image uploaded gets stored into the images folder in the project
 
-app.permanent_session_lifetime = timedelta(minutes = 1) #means session holds the data for the specified amount of time
+app.permanent_session_lifetime = timedelta(minutes = 30) #means session holds the data for the specified amount of time
 
 db = SQLAlchemy(app)
 
@@ -69,7 +69,7 @@ def sell():
 @app.route("/items")
 def items():
     if session:     #Uses the if statement to see if a user is logged in (in session)
-        user = session['User']      #Gives the variable user the username for whoever is in the session)
+        user = session["User"]      #Gives the variable user the username for whoever is in the session)
         return render_template("items.html", values = Items.query.filter_by(item_user = user).all())       #Returns the item template and querys the database for all the information for the current user and gives the information to the variable value
     else:
         flash("You are not logged in", "info")
